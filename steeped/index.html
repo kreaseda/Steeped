@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Steeped</title>
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="default-bg">
+
+  <!-- Skip Link for Keyboard Users -->
+  <a href="#main-menu" class="skip-link">Skip to menu</a>
+
+  <!-- Exit & Sound Buttons -->
+  <button class="exit-word" aria-label="Exit the game">exit</button>
+  <button class="sound-toggle" id="sound-toggle" aria-label="Toggle background sound">sound</button>
+
+  <!-- Rain Effect -->
+  <div class="rain-window" aria-hidden="true">
+    <video autoplay loop muted playsinline>
+      <source src="rain.mp4" type="video/mp4" />
+    </video>
+  </div>
+
+  <!-- Candle Flicker -->
+  <div class="candle-flicker" aria-hidden="true"></div>
+
+  <!-- Rain Audio -->
+  <audio id="rain-audio" src="steepedaudiorain.mp3" loop preload="auto"></audio>
+
+  <!-- Main Menu -->
+  <main id="main-menu" role="main" aria-label="Main game menu" class="menu">
+    <h1>Steeped</h1>
+    <p class="subtitle">Every brew holds a story.</p>
+
+    <div class="menu-button-container">
+      <button class="menu-button" id="takeasip-link" aria-label="Begin with a cup">Take a Sip</button>
+      <span class="hover-whisper">The warmth hides something deeper.</span>
+    </div>
+
+    <div class="menu-button-container">
+      <button class="menu-button" id="infusions-link" aria-label="Explore tea blends">Infusions</button>
+      <span class="hover-whisper">Each blend remembers.</span>
+    </div>
+
+    <div class="menu-button-container">
+      <button class="menu-button" id="echoes-link" aria-label="Read stories from past brews">Echoes</button>
+      <span class="hover-whisper">Voices linger in the leaves.</span>
+    </div>
+  </main>
+
+  <!-- Take a Sip Page -->
+  <section id="sip-room" role="region" aria-label="Sip Room" class="hidden sip-background">
+    <button class="return-button" id="back-menu-1">Back</button>
+    <p class="tea-whisper">"Some sips stir memories best left steeped."</p>
+  </section>
+
+  <!-- Infusions Page -->
+  <section id="infusions-room" role="region" aria-label="Infusions Room" class="hidden infusions-background">
+    <button class="return-button" id="back-menu-2">Back</button>
+    <p class="tea-whisper">"Each blend is a memory steeped in time."</p>
+   <!-- Add this just before the closing </body> tag -->
+
+  </div>
+
+  </section>
+
+  <!-- Echoes Page -->
+  <section id="echoes-room" role="region" aria-label="Echoes Room" class="hidden echoes-background">
+    <button class="return-button" id="back-menu-3">Back</button>
+    <p class="tea-whisper">"Voices linger in the leaves."</p>
+  </section>
+
+  <!-- Main JavaScript -->
+  <script src="main.js" defer></script>
+
+</body>
+</html>
