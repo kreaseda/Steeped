@@ -303,4 +303,26 @@ body.echoes-bg {
 
 
 
+.dust-layer {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9; /* Below fog if layered */
+  background: url('dusty.webp') repeat;
+  opacity: 0.9; /* Subtle. Raise if needed */
+  mix-blend-mode: overlay;
+  }
+
+@keyframes dustPulse {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.35; }
+}
+
+
+.dust-layer {
+  animation: dustPulse 6s ease-in-out infinite;
+}
+
 
