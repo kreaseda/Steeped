@@ -275,3 +275,32 @@ body.echoes-bg {
   background-color: #3c2a1d;
   box-shadow: 0 0 10px rgba(255, 221, 187, 0.5);
 }
+
+.fog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('fogy-overlay.webp') repeat;
+  background-size: cover; /* or contain, depending on mood */
+  opacity: 0.2; /* adjust to your taste */
+  z-index: 10;
+  pointer-events: none;
+  animation: driftFog 60s linear infinite;
+  mix-blend-mode: screen; /* Optional: adds softness */
+  filter: blur(7px);
+}
+
+@keyframes driftFog {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 1000px 500px;
+  }
+}
+
+
+
+
