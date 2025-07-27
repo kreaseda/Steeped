@@ -381,7 +381,7 @@ body.echoes-bg {
   opacity: 1;
 }
 #echo-trigger {
-  position: absolute;
+  position: absoute;
   left: 205px;
   bottom: 110px;
 }
