@@ -23,16 +23,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   function showSection(key) {
-    // Hide all sections
     for (let k in sections) {
       sections[k].style.display = "none";
-
     }
 
-    // Show the requested section
     sections[key].style.display = key === "menu" ? "flex" : "block";
 
-    // Set body class for background image
     document.body.className = "";
     if (key === "sip") {
       document.body.classList.add("sip-bg");
@@ -44,21 +40,51 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.classList.add("default-bg");
     }
 
-    // Show or hide rain and candle based on key
     const rain = document.querySelector(".rain-window");
     const candle = document.querySelector(".candle-flicker");
     const showAmbient = key === "menu";
     rain.style.display = showAmbient ? "block" : "none";
     candle.style.display = showAmbient ? "block" : "none";
 
-
-
-    // Make sure audio keeps playing
     if (audio.paused) {
       audio.volume = 0.3;
       audio.play().catch(() => console.log("Autoplay blocked"));
     }
   }
+
+  // Echoes interaction logic
+// ...existing code...
+  // Echoes interaction logic
+  const glitch = document.getElementById("glitchOverlay");
+  const echoAudio = document.getElementById("echoSound");
+  const echoTrigger = document.getElementById("echo-trigger");
+  const calmTrigger = document.getElementById("calm-trigger"); // Add this line
+
+  if (echoTrigger && echoAudio && glitch) {
+    echoTrigger.addEventListener("click", () => {
+      glitch.classList.remove("hidden");
+      echoAudio.play();
+    });
+
+    echoAudio.addEventListener("ended", () => {
+      glitch.classList.add("hidden");
+    });
+
+    // Add Calm button logic
+   if (calmTrigger) {
+  calmTrigger.addEventListener("click", () => {
+    glitch.classList.add("hidden");
+    echoAudio.pause();
+    echoAudio.currentTime = 0;
+    calmTrigger.classList.add("fade-out");
+    setTimeout(() => {
+      calmTrigger.style.display = "none";
+    }, 1000); // Match the CSS transition
+  });
+}
+
+  }
+// ...existing code...
 
   // Nav buttons
   document.getElementById("takeasip-link").addEventListener("click", () => showSection("sip"));
